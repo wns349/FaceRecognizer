@@ -1,0 +1,2 @@
+detection.algorithm=/Users/wns349/git/FaceRec/res/haarcascade_frontalface_default.xml
+detection.mirror=true

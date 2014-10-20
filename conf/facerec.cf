@@ -1,2 +1,9 @@
-detection.algorithm=/Users/wns349/git/FaceRec/res/haarcascade_frontalface_default.xml
+detection.algorithm=./res/haarcascade_frontalface_default.xml
 detection.mirror=true
+
+# 0 - FisherFace (Default)
+# 1 - Eigen
+# 2 - LBPHFace
+recognizer.type=0
+recognizer.threshold=3000
+recognizer.training=./res/

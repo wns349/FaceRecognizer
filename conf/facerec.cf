@@ -6,4 +6,5 @@ detection.mirror=true
 # 2 - LBPHFace
 recognizer.type=0
 recognizer.threshold=3000
-recognizer.training=./res/
+recognizer.training=./res/images/config.txt
+

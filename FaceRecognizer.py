@@ -10,6 +10,18 @@ class FaceRecognizer:
     self.trainPairs = {}
   
   def initialize(self, configs):
+    # Threshold
+    self.threshold = configs['recognizer.threshold']
+
+    # Training files
+    trainingConfig = open(configs['recognizer.training'], 'r')
+    totalTrainingImages = 0
+    for line in trainingConfig:
+      if (len(line) <= 0 or line.startswith('#')):
+        continue
+      totalTrainingImages++
+    logging.info('Found ' + totalTrainingImages + ' training images')
+
     # Identify recognizer type
     recognizerType = configs['recognizer.type'] 
     if (recognizerType == 2):
@@ -19,5 +31,5 @@ class FaceRecognizer:
     else:
       self.recognizer = cv2.createFisherFaceRecognizer()
 
-    # Threshold
-    self.threshold = configs['recognizer.threshold']
+
+

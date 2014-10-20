@@ -1,0 +1,19 @@
+1 bo ./res/images/bo/1.jpg
+1 bo ./res/images/bo/2.jpg
+1 bo ./res/images/bo/3.jpg
+1 bo ./res/images/bo/4.jpg
+1 bo ./res/images/bo/5.jpg
+2 gc ./res/images/gc/1.jpg
+2 gc ./res/images/gc/2.jpg
+2 gc ./res/images/gc/3.jpg
+2 gc ./res/images/gc/4.jpg
+2 gc ./res/images/gc/5.jpg
+2 gc ./res/images/gc/6.jpg
+2 gc ./res/images/gc/7.jpg
+3 md ./res/images/md/1.jpg
+3 md ./res/images/md/2.jpg
+3 md ./res/images/md/3.jpg
+3 md ./res/images/md/4.jpg
+3 md ./res/images/md/5.jpg
+3 md ./res/images/md/6.jpg
+

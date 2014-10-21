@@ -19,7 +19,6 @@ class FaceRecognizer:
     logging.info('Found ' + str(totalTrainingImages) + ' training images')
 
     trainingConfig.seek(0)
-    index = 0
     trainingImages = []
     trainingIndices = []
     for line in trainingConfig:
@@ -42,8 +41,7 @@ class FaceRecognizer:
 
       # Add to list
       trainingImages.append(numpy.asarray(im, dtype=numpy.uint8))
-      trainingIndices.append(index)
-      index = index + 1
+      trainingIndices.append(personId)
       if (not personId in self.trainPairs):
         self.trainPairs[personId] = personName
 

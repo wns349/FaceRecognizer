@@ -8,3 +8,4 @@ recognizer.type=0
 recognizer.threshold=3000
 recognizer.training=./res/images/config.txt
 
+main.gui=true

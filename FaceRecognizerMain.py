@@ -20,19 +20,39 @@ def loadConfig(configFilePath):
   return configs
 
 def startProcess(configs, faceDetector, faceRecognizer):
+  isGUI = configs['main.gui'].startswith('t')
+
+  faceTuples = []
   while True:
     # Grab cameraFrame and detected faces
     cameraFrame, faces = faceDetector.grab()
 
-    # Draw face
+    # Crop faces for recognition
     for face in faces:
-      cv2.rectangle(cameraFrame, (face[0] + face[2], face[1] + face[3]), (face[0], face[1]), (0, 255, 0))
+      cropFace = cameraFrame[face[1]:face[1] + face[3], face[0]:face[0] + face[2]]
+      predictResult = faceRecognizer.predict(cropFace)
+      faceTuples.append((predictResult, face))
+      
+    # Draw face
+    for faceTuple in faceTuples:
+      predictResult = faceTuple[0]
+      face = faceTuple[1]
+
+      print predictResult
+
+      faceRecognized = (not predictResult[0] is None)
+      rectColor = (0, 255, 0) if faceRecognized else (255, 0, 0)
+      cv2.rectangle(cameraFrame, (face[0] + face[2], face[1] + face[3]), (face[0], face[1]), rectColor)
 
     # Display image
-    cv2.imshow('FaceRecognizer', cameraFrame)
+    if (isGUI):
+      cv2.imshow('FaceRecognizer', cameraFrame)
 
     if (cv2.waitKey(30) >= 0):
       break
+
+    # Clear
+    del faceTuples[:]
 
   return
 

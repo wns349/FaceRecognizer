@@ -27,6 +27,9 @@ def startProcess(configs, faceDetector, faceRecognizer):
     # Grab cameraFrame and detected faces
     cameraFrame, faces = faceDetector.grab()
 
+    if (cameraFrame is None):
+      continue
+
     # Crop faces for recognition
     for face in faces:
       cropFace = cameraFrame[face[1]:face[1] + face[3], face[0]:face[0] + face[2]]

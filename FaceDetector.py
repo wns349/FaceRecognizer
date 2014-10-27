@@ -28,7 +28,7 @@ class FaceDetector:
     # Grab image
     ret, cameraFrame = self.video.read()
     if (not ret):
-      return (cameraFrame, [])
+      return (None, [])
 
     if (self.mirror):
       cv2.flip(cameraFrame, 1)

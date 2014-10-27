@@ -1,5 +1,7 @@
 detection.algorithm=./res/haarcascade_frontalface_default.xml
 detection.mirror=true
+detection.width=100
+detection.height=100
 
 # 0 - FisherFace (Default)
 # 1 - Eigen

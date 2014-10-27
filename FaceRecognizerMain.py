@@ -35,6 +35,8 @@ def startProcess(configs, faceDetector, faceRecognizer):
       cropFace = cameraFrame[face[1]:face[1] + face[3], face[0]:face[0] + face[2]]
       predictResult = faceRecognizer.predict(cropFace)
       faceTuples.append((predictResult, face))
+      #cv2.imshow('CROP FACE', cropFace)
+      #if(cv2.waitKey(3000) >= 0):break
       
     # Draw face
     for faceTuple in faceTuples:

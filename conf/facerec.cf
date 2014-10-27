@@ -1,13 +1,13 @@
 detection.algorithm=./res/haarcascade_frontalface_default.xml
 detection.mirror=true
-detection.width=100
-detection.height=100
+detection.width=0
+detection.height=0
 
 # 0 - FisherFace (Default)
 # 1 - Eigen
 # 2 - LBPHFace
 recognizer.type=0
 recognizer.threshold=3000
-recognizer.training=./res/images/config.txt
+recognizer.training=./res/images/config_png.txt
 
 main.gui=true

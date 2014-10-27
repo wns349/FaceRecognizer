@@ -16,4 +16,8 @@
 3 md ./res/images/md/4.jpg
 3 md ./res/images/md/5.jpg
 3 md ./res/images/md/6.jpg
-
+4 js ./res/images/js/a1.jpg
+4 js ./res/images/js/a2.jpg
+4 js ./res/images/js/a3.jpg
+4 js ./res/images/js/a4.jpg
+4 js ./res/images/js/a5.jpg

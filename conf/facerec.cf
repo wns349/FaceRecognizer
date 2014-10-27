@@ -1,21 +1,35 @@
+##########
+# Detector
+##########
 detection.algorithm=./res/haarcascade_frontalface_default.xml
 detection.mirror=true
 detection.width=0
 detection.height=0
 
-# 0 - FisherFace (Default)
-# 1 - Eigen
-# 2 - LBPHFace
+##########
+# Recognizer
+##########
+#   0 - FisherFace (Default)
+#   1 - Eigen
+#   2 - LBPHFace
 recognizer.type=0
 recognizer.threshold=3000
 recognizer.training=./res/images/config_png.txt
 
+##########
 # Widget
+##########
 widget.use=true
+#   Delay in Milliseconds
+widget.delay=1000
 widget.jvmaddress=127.0.0.1
 widget.jvmport=25333
 widget.widgetname=WidgetName
 widget.contextname=ContextName
 widget.contexttype=ContextType
 
+
+##########
+# Main
+##########
 main.gui=true

@@ -19,7 +19,7 @@ recognizer.training=./res/images/config_png.txt
 ##########
 # Widget
 ##########
-widget.use=true
+widget.use=false
 #   Delay in Milliseconds
 widget.delay=1000
 widget.jvmaddress=127.0.0.1
@@ -33,3 +33,4 @@ widget.contexttype=ContextType
 # Main
 ##########
 main.gui=true
+main.framesleep=50

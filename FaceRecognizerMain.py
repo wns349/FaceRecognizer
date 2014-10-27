@@ -27,6 +27,8 @@ def terminateProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
 
 def startProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
   isGUI = configs['main.gui'].startswith('t')
+  frameSleep = int(configs['main.framesleep'])
+  logging.info('IsGUI: ' + str(isGUI) + ', frameSleep: ' + str(frameSleep))
 
   faceTuples = []
   while True:
@@ -61,7 +63,7 @@ def startProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
     if (isGUI):
       cv2.imshow('FaceRecognizer', cameraFrame)
 
-    if (cv2.waitKey(30) >= 0):
+    if (cv2.waitKey(frameSleep) >= 0):
       break
 
     # Clear

@@ -45,4 +45,7 @@ class FaceDetector:
     return (cameraFrame, faces)
 
   def terminate(self):
+    if (not self.video is None):
+      self.video.release() 
     logging.info ('Terminating FaceDetector...')
+

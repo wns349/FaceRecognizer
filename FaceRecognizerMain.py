@@ -23,6 +23,7 @@ def terminateProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
   widgetCommunicator.terminate()
   faceRecognizer.terminate()
   faceDetector.terminate()
+  logging.info('Terminated. Bye.');
 
 def startProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
   isGUI = configs['main.gui'].startswith('t')
@@ -48,7 +49,7 @@ def startProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
       predictResult = faceTuple[0]
       face = faceTuple[1]
 
-      print predictResult
+      logging.info(predictResult)
       # Report to widget
       widgetCommunicator.report(predictResult)
 

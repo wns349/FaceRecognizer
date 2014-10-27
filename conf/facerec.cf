@@ -10,4 +10,12 @@ recognizer.type=0
 recognizer.threshold=3000
 recognizer.training=./res/images/config_png.txt
 
+# Widget
+widget.use=true
+widget.jvmaddress=127.0.0.1
+widget.jvmport=25333
+widget.widgetname=WidgetName
+widget.contextname=ContextName
+widget.contexttype=ContextType
+
 main.gui=true

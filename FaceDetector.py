@@ -44,3 +44,5 @@ class FaceDetector:
 
     return (cameraFrame, faces)
 
+  def terminate(self):
+    logging.info ('Terminating FaceDetector...')

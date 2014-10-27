@@ -1,5 +1,5 @@
 import logging, sys, time
-import FaceDetector, FaceRecognizer
+import FaceDetector, FaceRecognizer, WidgetCommunicator
 import cv2
 
 def initLogger():
@@ -19,7 +19,12 @@ def loadConfig(configFilePath):
 
   return configs
 
-def startProcess(configs, faceDetector, faceRecognizer):
+def terminateProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
+  widgetCommunicator.terminate()
+  faceRecognizer.terminate()
+  faceDetector.terminate()
+
+def startProcess(configs, faceDetector, faceRecognizer, widgetCommunicator):
   isGUI = configs['main.gui'].startswith('t')
 
   faceTuples = []
@@ -44,6 +49,8 @@ def startProcess(configs, faceDetector, faceRecognizer):
       face = faceTuple[1]
 
       print predictResult
+      # Report to widget
+      widgetCommunicator.report(predictResult)
 
       faceRecognized = (not predictResult[0] is None)
       rectColor = (0, 255, 0) if faceRecognized else (255, 0, 0)
@@ -81,5 +88,11 @@ faceDetector.initialize(configs)
 faceRecognizer = FaceRecognizer.FaceRecognizer()
 faceRecognizer.initialize(configs)
 
+# Widget Communicator
+widgetCommunicator = WidgetCommunicator.WidgetCommunicator()
+widgetCommunicator.initialize(configs)
+
 # Start Process
-startProcess(configs, faceDetector, faceRecognizer)
+startProcess(configs, faceDetector, faceRecognizer, widgetCommunicator)
+
+terminateProcess(configs, faceDetector, faceRecognizer, widgetCommunicator)

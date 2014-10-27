@@ -88,4 +88,7 @@ class FaceRecognizer:
       name = None
 
     return (name, label, confidence)
+  def terminate(self):
+    logging.info('Terminating FaceRecognizer...')
+
 

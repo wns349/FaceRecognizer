@@ -34,7 +34,7 @@ class FaceDetector:
     if (videoWidth > 0):
       self.video.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, videoWidth)
     if (videoHeight > 0):
-      self.video.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, videoWidth)
+      self.video.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, videoHeight)
 
   def grab(self):
     if(self.video is None or self.faceClassifier is None):

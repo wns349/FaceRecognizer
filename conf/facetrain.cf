@@ -1,0 +1,6 @@
+train.output=./res/out/
+train.facerec=./conf/facerec.cf
+train.imagecount=10
+train.imagewidth=100
+train.imageheight=100
+

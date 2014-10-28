@@ -6,6 +6,10 @@ class FaceDetector:
     self.faceClassifier = None
     self.mirror = False
     self.video = None
+    self.scaleFactor = 2.0
+    self.minNeighbors = 5
+    self.minWidth = 80
+    self.minHeight = 80
 
   def initialize(self, configs):
     # Classifier
@@ -13,6 +17,12 @@ class FaceDetector:
     self.faceClassifier = cv2.CascadeClassifier()
     if (not self.faceClassifier.load(detectionAlgorithmPath)):
       raise Exception("Failed to load " + detectionAlgorithmPath)
+
+    # Classifier related configs
+    self.scaleFactor = float(configs['detection.scalefactor'])
+    self.minNeighbors = int(configs['detection.minneighbors'])
+    self.minWidth = int(configs['detection.minwidth'])
+    self.minHeight = int(configs['detection.minheight'])
 
     # Mirror
     self.mirror = configs['detection.mirror'].startswith('t')
@@ -40,7 +50,12 @@ class FaceDetector:
       cv2.flip(cameraFrame, 1)
 
     # Detect faces
-    faces = self.faceClassifier.detectMultiScale(cameraFrame)
+    faces = self.faceClassifier.detectMultiScale(cameraFrame,
+      scaleFactor=self.scaleFactor,
+      minNeighbors=self.minNeighbors,
+      minSize=(self.minWidth, self.minHeight),
+      flags=cv2.cv.CV_HAAR_SCALE_IMAGE
+    )
 
     return (cameraFrame, faces)
 

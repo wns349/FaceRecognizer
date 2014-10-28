@@ -3,8 +3,14 @@
 ##########
 detection.algorithm=./res/haarcascade_frontalface_default.xml
 detection.mirror=true
+#  Camera. NOTE: NOT WORK PROPERLY
 detection.width=0
 detection.height=0
+#  Detection classifier related
+detection.scalefactor=2.0
+detection.minneighbors=5
+detection.minwidth=80
+detection.minheight=80
 
 ##########
 # Recognizer
